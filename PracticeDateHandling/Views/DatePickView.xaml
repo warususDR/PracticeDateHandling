@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="PracticeDateHandling.Views.DatePickView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignHeight="200" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name = "DateOfBirth" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Choose your date of birth:" Margin="5, 2" FontSize="11"/>
+        <DatePicker Name ="PickDate" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 2" SelectedDate="{Binding Path=Birthday, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Name="SubmitDate" Grid.Row="2" Grid.Column="0" Content="Submit date" Margin="5, 2" Command="{Binding Path=SubmitDateCommand}"/>
+        <Button Name="Cancel" Grid.Row="2" Grid.Column="1" Content="Cancel" Margin="5, 2" Command="{Binding Path=CancelCommand}"/>
+        <TextBlock Name="DisplayAge" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 2" FontSize="12" Text="{Binding StringFormat=Age: {0}, Path=Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Name="DisplayZodiac" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 2" FontSize="12" Text="{Binding StringFormat=Zodiac: {0}, Path=Zodiac, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Name="DisplayChineseZodiac" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 2" FontSize="12" Text="{Binding StringFormat=Chinese Zodiac: {0}, Path=ZodiacChinese, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Name="BirthdayText" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="5, 2" FontSize="12" Text="{Binding Path=BirthdayMessage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged }"/>
+    </Grid>
+</UserControl>
